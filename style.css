@@ -59,6 +59,8 @@
   padding: 0;
   bottom: 0;
   z-index: 2;
+  color: white;
+  opacity: 0.5;
 }
 
 .indicator {
@@ -71,6 +73,7 @@
 
 .indicator.active {
   color: white;
+  opacity: 0;
   
 }
 
