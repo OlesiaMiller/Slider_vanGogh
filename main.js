@@ -3,9 +3,14 @@ var controls = document.querySelector('.controls');
 var indicators = document.querySelectorAll('.indicator');
 
 var currentSlide = 0;
+const ARROW_LEFT = 'ArrowLeft';
+const ARROW_RIGHT = 'ArrowLRight';
+const SPACE = ' ';
+const PAUES = 'paues';
+const PLAY = 'play';
 
 
-  controls.style.display = 'inline-block';
+controls.style.display = 'inline-block';
 
 
 function previousSlide() {
@@ -42,6 +47,23 @@ function pauseSlideShow() {
   clearInterval(slidInteral);
 }
 
+function clickPausePlay() {
+  if (playing) pauseSlideShow()
+  else playSlideShow();
+}
+
+function clickPrev() {
+  pauseSlideShow();
+  previousSlide();
+
+}
+
+function clickNext() {
+  pauseSlideShow();
+  nextSlide();
+
+}
+
 pauseButton.onclick = function() {
   if (playing) pauseSlideShow()
     else playSlideShow();
@@ -72,6 +94,24 @@ function clickIndicatorBtn() {
 for (var i = 0, n = indicators.length; i < n; i++) {
   indicators[i].addEventListener('click', clickIndicatorBtn);
 }
+
+
+
+
+document.addEventListener('keydown', function(event) {
+  if (event.code == 'ArrowLeft')
+  clickPrev();
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.code == 'ArrowRight')
+  clickNext();
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.code == 'Space')
+  clickPausePlay();
+});
 
 
 

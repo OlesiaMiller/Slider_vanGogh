@@ -1,12 +1,18 @@
-.slides {
+.container {
   position: relative;
-  height: 96vh;
+  overflow: hidden;
+}
+
+.slides {
+  position: absolute;
+  height: 98vh;
+  width: 98vw;
   padding: 0;
   margin: 0;
   list-style-type: none;
   overflow: hidden;
 }
-/* .overflow {
+  /* .overflow {
   text-align: center;
 } */
 
@@ -19,6 +25,7 @@
   opacity: 0;
   z-index: 1;
   transition: opacity 1s;
+  overflow: hidden;
 }
 
 .slide_img {
@@ -39,7 +46,7 @@
 
 .controls {
 
-  width: 100%;
+  width: 97vw;
   height: 100px;
   text-align: center;
   position: absolute;
@@ -51,18 +58,24 @@
 
 }
 
+.controls-grid {
+  display: grid;
+  grid-template-columns: 110px auto 110px; 
+  font-size: 100px;
+}
+
 .indicators {
-  width: 100%;
+  width: 97vw;
   height: 60px;
   text-align: center;
   position: absolute;
   padding: 0;
   bottom: 0;
   z-index: 2;
-  color: white;
-  opacity: 0.5;
 }
+
 .indicator {
+  color: white;
   cursor: pointer;
   display: inline-block;
   font-size: 30px;
@@ -71,13 +84,12 @@
 }
 
 .indicator.active {
-  color: white;
   opacity: 0;
   
 }
 
 .controls {
-  font-size: 100px;
+
   color: white;
   opacity: 0.5;
   transition: 0.8s;
@@ -89,10 +101,4 @@
   opacity: 1;
 }
 
-.controls-prev {
-  padding-right: 500px;
-}
 
-.controls-next {
-  padding-left: 500px;
-}
