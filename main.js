@@ -1,6 +1,7 @@
 var slides = document.querySelectorAll('.slide');
 var controls = document.querySelector('.controls');
 var indicators = document.querySelectorAll('.indicator');
+let indContainer = document.querySelector('.indicators');
 
 var currentSlide = 0;
 const ARROW_LEFT = 'ArrowLeft';
@@ -82,18 +83,16 @@ previous.onclick = function() {
   previousSlide();
 }
 
-// нужно сделать делигирование
 
-function clickIndicatorBtn() {
-  pauseSlideShow();
-  goToSlide(+this.getAttribute('data-slide-to'));
+function clickIndicatorBtn(e) {
+    let target = e.target;
+
+  if (target.classList.contains('indicator')) {
+    pauseSlideShow();
+    goToSlide(+target.getAttribute('data-slide-to'));
+  }
 }
-
-
-
-for (var i = 0, n = indicators.length; i < n; i++) {
-  indicators[i].addEventListener('click', clickIndicatorBtn);
-}
+indContainer.addEventListener('click', clickIndicatorBtn);
 
 
 
